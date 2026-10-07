@@ -1,0 +1,14 @@
+.resources {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.resources img {
+  width: 75px;
+  height: 75px;
+}
+
+#discord-icon {
+  border-radius: 20px;
+}
