@@ -1,1 +1,16 @@
 node_modules
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log
+
+# Local environment variables
+.env
+.env.*
