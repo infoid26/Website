@@ -1,12 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6fb;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: white;
+  color: #12285a;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #dde2ee;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  background: #12285a;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+header h1 {
+  font-size: 22px;
+}
+
+header p {
+  font-size: 21px;
+}
+
+/* ===== Meniul principal ===== */
+nav {
+  background: #12285a;
+  padding: 0 40px;
+}
+
+nav > ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav > ul > li {
+  position: relative;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 16px 24px;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+nav > ul > li > a:hover,
+nav > ul > li:hover > a,
+nav > ul > li:focus-within > a {
+  background: #1f3d82;
+  color: white;
+  box-shadow: inset 0 -3px 0 #f2b705;
+}
+
+/* mica sageată după meniurile cu submeniu */
+.are-submeniu > a::after {
+  content: ' \25BE';
+  font-size: 12px;
+}
+
+/* ===== Submeniuri ===== */
+.submeniu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 230px;
+  background: white;
+  border-top: 3px solid #f2b705;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 10;
+}
+
+.are-submeniu:hover > .submeniu,
+.are-submeniu:focus-within > .submeniu {
+  display: block;
+}
+
+.submeniu li a {
+  color: #1c3c85;
+  padding: 12px 20px;
+  font-size: 15px;
+  border-bottom: 1px solid #e6e9f2;
+}
+
+.submeniu li:last-child a {
+  border-bottom: none;
+}
+
+.submeniu li a:hover {
+  background: #eef2fb;
+  padding-left: 28px;
+}
+
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+main p {
+  line-height: 1.6;
+}
+
 .resources {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 28px;
+}
+
+footer {
+  background: white;
+  border-top: 1px solid #dde2ee;
+  padding: 20px;
 }
 
 .resources img {
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
 }
 
 #discord-icon {
