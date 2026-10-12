@@ -1,3 +1,15 @@
+:root {
+  --color-primary: #12285a;
+  --color-primary-light: #1f3d82;
+  --color-accent: #f2b705;
+  --color-text: #222;
+  --color-surface: white;
+  --color-page-background: #f4f6fb;
+  --color-border: #dde2ee;
+  --color-submenu-link: #1c3c85;
+  --color-submenu-hover: #eef2fb;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,28 +18,28 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #f4f6fb;
-  color: #222;
+  background: var(--color-page-background);
+  color: var(--color-text);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 header {
-  background: white;
-  color: #12285a;
+  background: var(--color-surface);
+  color: var(--color-primary);
   padding: 18px 40px;
   display: flex;
   align-items: center;
   gap: 16px;
-  border-bottom: 1px solid #dde2ee;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .logo {
   width: 48px;
   height: 48px;
-  background: #12285a;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-surface);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -46,7 +58,7 @@ header p {
 
 /* ===== Meniul principal ===== */
 nav {
-  background: #12285a;
+  background: var(--color-primary);
   padding: 0 40px;
 }
 
@@ -62,7 +74,7 @@ nav > ul > li {
 
 nav a {
   display: block;
-  color: white;
+  color: var(--color-surface);
   text-decoration: none;
   padding: 16px 24px;
   font-size: 16px;
@@ -72,12 +84,12 @@ nav a {
 nav > ul > li > a:hover,
 nav > ul > li:hover > a,
 nav > ul > li:focus-within > a {
-  background: #1f3d82;
-  color: white;
-  box-shadow: inset 0 -3px 0 #f2b705;
+  background: var(--color-primary-light);
+  color: var(--color-surface);
+  box-shadow: inset 0 -3px 0 var(--color-accent);
 }
 
-/* mica sageată după meniurile cu submeniu */
+/* mica sageată după meniuri */
 .are-submeniu > a::after {
   content: ' \25BE';
   font-size: 12px;
@@ -90,9 +102,8 @@ nav > ul > li:focus-within > a {
   top: 100%;
   left: 0;
   min-width: 230px;
-  background: white;
-  border-top: 3px solid #f2b705;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  background: var(--color-surface);
+  border-top: 3px solid var(--color-accent);
   display: none;
   z-index: 10;
 }
@@ -103,10 +114,10 @@ nav > ul > li:focus-within > a {
 }
 
 .submeniu li a {
-  color: #1c3c85;
+  color: var(--color-submenu-link);
   padding: 12px 20px;
   font-size: 15px;
-  border-bottom: 1px solid #e6e9f2;
+  border-bottom: 1px solid var(--color--border);
 }
 
 .submeniu li:last-child a {
@@ -114,7 +125,7 @@ nav > ul > li:focus-within > a {
 }
 
 .submeniu li a:hover {
-  background: #eef2fb;
+  background: var(--color-submenu-hover);
   padding-left: 28px;
 }
 
@@ -129,6 +140,50 @@ main p {
   line-height: 1.6;
 }
 
+#contact {
+  margin-top: 32px;
+}
+
+#contact h2,
+#contact h3 {
+  margin-bottom: 12px;
+}
+
+#contact h3 {
+  margin-top: 20px;
+}
+
+.secretariat-contact {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 20px;
+  padding: 16px 0;
+}
+
+.secretariat-contact p {
+  margin-bottom: 8px;
+}
+
+.secretariat-contact address {
+  font-style: normal;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+
+.secretariat-contact a {
+  color: var(--color-submenu-link);
+}
+
+#contact p {
+  margin-bottom: 12px;
+}
+
+#contact ul {
+  padding-left: 24px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
 .resources {
   display: flex;
   align-items: center;
@@ -137,8 +192,8 @@ main p {
 }
 
 footer {
-  background: white;
-  border-top: 1px solid #dde2ee;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
   padding: 20px;
 }
 
