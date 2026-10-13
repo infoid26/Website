@@ -1,0 +1,28 @@
+
+name: HTML Quality
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  html:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check HTML errors
+        run: npx --yes htmlhint "**/*.html"
+
+      - name: Check HTML formatting
+        continue-on-error: true
+        run: npx --yes prettier --check "**/*.html"
