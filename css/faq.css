@@ -1,0 +1,43 @@
+.faq-main { --faq-navy: #12285a; --faq-blue: #1f3d82; --faq-border: #dae2ee; --faq-muted: #56667d; }
+.faq-main { width: 100%; max-width: 1120px; margin: 32px auto 60px; padding: 0 24px; }
+.faq-breadcrumbs { margin-bottom: 16px; color: var(--faq-muted); font-size: 0.9rem; }
+.faq-breadcrumbs a { color: var(--faq-navy); }
+.faq-heading { font-size: clamp(1.8rem, 4vw, 2.7rem); color: var(--faq-navy); letter-spacing: -0.025em; margin-bottom: 8px; }
+.faq-search-panel { background: #fff; border: 1px solid var(--faq-border); padding: 18px; border-radius: 14px; box-shadow: 0 4px 20px rgba(18,40,90,.04); margin-bottom: 22px; }
+.faq-search-label { display: block; font-weight: 700; margin-bottom: 9px; color: var(--faq-navy); }
+.faq-search-line { display: flex; align-items: stretch; gap: 10px; }
+.faq-search-input { width: 100%; flex: 1; min-width: 0; border: 1px solid #b9c6da; border-radius: 9px; padding: 12px 15px; font-size: 1rem; font-family: inherit; color: #1c2e49; background: #fff; }
+.faq-search-input:focus-visible { outline: 3px solid rgba(31,61,130,.22); border-color: var(--faq-blue); }
+.faq-reset { border: 1px solid #b9c6da; background: #f5f7fb; color: var(--faq-navy); border-radius: 9px; padding: 0 16px; cursor: pointer; font-weight: 600; }
+.faq-reset:hover { background: #e7edf8; }
+.faq-results { margin-top: 13px; color: var(--faq-muted); font-size: 0.88rem; }
+.faq-layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 28px; align-items: start; }
+.faq-sections { min-width: 0; }
+.faq-section { margin: 0 0 32px; scroll-margin-top: 20px; }
+.faq-section h2 { color: var(--faq-navy); font-size: 1.36rem; padding-bottom: 10px; border-bottom: 2px solid var(--faq-border); margin-bottom: 14px; }
+.faq-item { background: #fff; border: 1px solid var(--faq-border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+.faq-item[open] { border-color: #a8bbd7; box-shadow: 0 3px 12px rgba(18,40,90,.05); }
+.faq-item summary { display: flex; align-items: center; gap: 12px; padding: 16px 18px; cursor: pointer; list-style: none; color: #172d4c; font-weight: 600; line-height: 1.45; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; margin-left: auto; font-size: 1.4rem; color: var(--faq-blue); font-weight: 400; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item summary:hover { background: #f7f9fd; }
+.faq-item summary:focus-visible { outline: 3px solid #99b7e8; outline-offset: -3px; }
+.faq-number { font-size: .77rem; color: #61738b; font-weight: 700; min-width: 26px; }
+.faq-question { flex: 1; }
+.faq-answer { padding: 0 18px 17px 56px; color: #344760; font-size: .96rem; line-height: 1.65; }
+.faq-answer p { margin: 0 0 9px; }
+.faq-answer a { color: #164a96; text-decoration-thickness: 1px; text-underline-offset: 2px; overflow-wrap: anywhere; }
+.faq-sources { font-size: .83rem; margin-top: 10px; color: #64748b; }
+.faq-sidebar { position: sticky; top: 22px; background: #fff; border: 1px solid var(--faq-border); border-radius: 12px; padding: 18px; }
+.faq-sidebar h2 { font-size: 1rem; color: var(--faq-navy); margin-bottom: 10px; }
+.faq-sidebar ul { list-style: none; }
+.faq-sidebar li { padding: 3px 0; }
+.faq-sidebar a { color: #33517a; font-size: .88rem; display: block; padding: 6px 2px; text-decoration: none; line-height: 1.35; }
+.faq-sidebar a:hover { text-decoration: underline; }
+.faq-empty { text-align: center; padding: 36px 16px; background: white; border: 1px dashed #b8c7da; border-radius: 12px; }
+.faq-empty h2 { color: var(--faq-navy); font-size: 1.2rem; margin-bottom: 8px; }
+.faq-empty p { color: var(--faq-muted); }
+.faq-main [hidden] { display: none !important; }
+@media (max-width: 850px) { .faq-layout { grid-template-columns: minmax(0, 1fr); } .faq-sidebar { position: static; order: -1; } .faq-sidebar ul { columns: 2; } }
+@media (max-width: 600px) { .faq-main { margin-top: 20px; padding: 0 14px; } .faq-search-panel { padding: 14px; } .faq-item summary { padding: 14px 12px; gap: 8px; } .faq-answer { padding: 0 12px 14px 46px; } .faq-sidebar ul { columns: 1; } .faq-reset { padding: 0 10px; } }
