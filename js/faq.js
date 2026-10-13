@@ -4,10 +4,19 @@ const faqSearchInput = document.getElementById("faq-search");
 const faqResetButton = document.getElementById("faq-reset");
 const faqItems = Array.from(document.querySelectorAll(".faq-item"));
 const faqSections = Array.from(document.querySelectorAll(".faq-section"));
-const faqFilterButtons = Array.from(document.querySelectorAll(".faq-filter"));
 const faqResultsCount = document.getElementById("faq-results-count");
 const faqEmptyState = document.getElementById("faq-empty");
-let faqSelectedCategory = "all";
+
+// Numbers are presentation only: restart at 01 for every category.
+// IDs are stable and independent of the order of the questions.
+function numberFaqQuestions() {
+    for (const section of faqSections) {
+        section.querySelectorAll(".faq-item").forEach((item, index) => {
+            const numberElement = item.querySelector(".faq-number");
+            if (numberElement) numberElement.textContent = String(index + 1).padStart(2, "0");
+        });
+    }
+}
 
 function normalizeFaqText(text) {
     return text.toLocaleLowerCase("ro").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ").trim();
@@ -18,9 +27,8 @@ function updateFaqResults() {
     let visibleCount = 0;
 
     for (const item of faqItems) {
-        const matchesCategory = faqSelectedCategory === "all" || item.dataset.category === faqSelectedCategory;
         const matchesText = normalizeFaqText(item.textContent).includes(searchText);
-        item.hidden = !(matchesCategory && matchesText);
+        item.hidden = !matchesText;
         if (!item.hidden) visibleCount++;
     }
 
@@ -33,23 +41,31 @@ function updateFaqResults() {
     faqResetButton.hidden = faqSearchInput.value.length === 0;
 }
 
+// Open a question when its descriptive ID appears in the URL.
+function openFaqFromHash() {
+    const hash = decodeURIComponent(window.location.hash.slice(1));
+    if (!hash) return;
+
+    const item = faqItems.find(question => question.id === hash);
+    if (!item) return;
+
+    if (faqSearchInput.value) {
+        faqSearchInput.value = "";
+        updateFaqResults();
+    }
+
+    item.open = true;
+    window.requestAnimationFrame(() => item.scrollIntoView({ block: "start" }));
+}
+
 faqSearchInput.addEventListener("input", updateFaqResults);
 faqResetButton.addEventListener("click", function () {
     faqSearchInput.value = "";
     updateFaqResults();
     faqSearchInput.focus();
 });
+window.addEventListener("hashchange", openFaqFromHash);
 
-for (const button of faqFilterButtons) {
-    button.addEventListener("click", function () {
-        faqSelectedCategory = button.dataset.filter;
-        for (const filterButton of faqFilterButtons) {
-            const isActive = filterButton === button;
-            filterButton.classList.toggle("is-active", isActive);
-            filterButton.setAttribute("aria-pressed", String(isActive));
-        }
-        updateFaqResults();
-    });
-}
-
+numberFaqQuestions();
 updateFaqResults();
+openFaqFromHash();
