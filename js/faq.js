@@ -66,6 +66,13 @@ faqResetButton.addEventListener("click", function () {
 });
 window.addEventListener("hashchange", openFaqFromHash);
 
+// Keep the URL shareable whenever a question is expanded.
+faqItems.forEach(item => {
+    item.addEventListener("toggle", () => {
+        if (item.open) history.replaceState(null, "", `#${item.id}`);
+    });
+});
+
 numberFaqQuestions();
 updateFaqResults();
 openFaqFromHash();
