@@ -23,6 +23,18 @@ header {
   border-bottom: 1px solid #dde2ee;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table > th> td {
+  padding: 8px;
+  background-color:#dde2ee;
+}
 .logo {
   width: 300px;
   max-width: 100%;
@@ -83,6 +95,7 @@ nav > ul > li:focus-within > a {
   top: 100%;
   left: 0;
   min-width: 230px;
+  max-width: 330px;
   background: white;
   border-top: 3px solid #f2b705;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
@@ -90,8 +103,30 @@ nav > ul > li:focus-within > a {
   z-index: 10;
 }
 
+.submeniu2 {
+  list-style: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 230px;
+  max-width: 600px;
+  background: white;
+  border-top: 3px solid #f2b705;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
 .are-submeniu:hover > .submeniu,
 .are-submeniu:focus-within > .submeniu {
+  display: block;
+}
+
+.submeniu > li {
+  position: relative;
+}
+
+.submeniu > li:hover > .submeniu2,
+.submeniu > li:focus-within > .submeniu2 {
   display: block;
 }
 
