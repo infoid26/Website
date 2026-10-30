@@ -74,12 +74,6 @@ header p {
   font-size: 21px;
 }
 
-header > div:last-child {
-  margin-left: auto;
-  display: flex;
-  gap: 8px;
-}
-
 /* ===== Meniul principal ===== */
 nav {
   background: #12285a;
