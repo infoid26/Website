@@ -41,6 +41,31 @@ table > th> td {
   height: auto;
 }
 
+.site-header {
+  display: flex;
+  align-items: center;
+}
+
+.header-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.svg-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.svg-btn > svg {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
 header h1 {
   font-size: 22px;
 }
@@ -189,4 +214,16 @@ footer {
 
 @media (max-width: 600px) {
     .logo { width: 200px;}
+    
+    .site-header {
+      flex-direction: row;
+      align-items: flex-start;
+  }
+    .header-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 8px;
+      margin-left: 0;
+      justify-content: center;
+  }
 }
